@@ -25,14 +25,24 @@
         color: #fff;
     }
 
+    .slick-prev {
+        left: 10px;
+        z-index: 1;
+    }
+
+    .slick-next {
+        right: 10px;
+        z-index: 1;
+    }
+
 </style>
 @endpush
 
 @push('js')
 <script>
     $('#readMore').click(function() {
-            if ($(this).text() == 'Read Less') $(this).text('Read More');
-            else $(this).text('Read Less');
+        if ($(this).text() == 'Read Less') $(this).text('Read More');
+        else $(this).text('Read Less');
         });
 </script>
 <script>

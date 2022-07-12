@@ -18,4 +18,4 @@ mix
         require("tailwindcss"),
         require("autoprefixer"),
     ])
-    .browserSync("http://127.0.0.1:8000").disableNotifications;
+    .browserSync("http://127.0.0.1:8000").disableNotifications();

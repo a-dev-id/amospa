@@ -116,9 +116,8 @@
                 height: auto;
                 min-height: 220px;
             }
-
-
         }
+
     </style>
     @stack('css')
 </head>
@@ -208,7 +207,7 @@
                             Amo World
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Monthly Promotions</a></li>
+                            <li><a class="dropdown-item" href="{{ route('front.promotion') }}">Monthly Promotions</a></li>
                             <li><a class="dropdown-item" href="#">Customer Reviews</a></li>
                             <li><a class="dropdown-item" href="#">Media Gallery</a></li>
                             <li><a class="dropdown-item" href="#">News & Information</a></li>

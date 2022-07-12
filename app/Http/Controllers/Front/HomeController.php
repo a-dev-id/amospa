@@ -36,4 +36,9 @@ class HomeController extends Controller
     {
         return view('front.groups-mobile');
     }
+
+    public function promotion()
+    {
+        return view('front.promotion');
+    }
 }

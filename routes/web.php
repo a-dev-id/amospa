@@ -19,6 +19,7 @@ Route::get('/cafe/drinks-menu', [App\Http\Controllers\Front\HomeController::clas
 Route::get('/cafe/food-menu', [App\Http\Controllers\Front\HomeController::class, 'food_menu'])->name('front.food_menu');
 Route::get('/spa-menu/nails', [App\Http\Controllers\Front\HomeController::class, 'nails'])->name('front.nails');
 Route::get('/groups-and-mobile', [App\Http\Controllers\Front\HomeController::class, 'groups_mobile'])->name('front.groups_mobile');
+Route::get('/monthly-promotions', [App\Http\Controllers\Front\HomeController::class, 'promotion'])->name('front.promotion');
 
 require __DIR__ . '/auth.php';
 
