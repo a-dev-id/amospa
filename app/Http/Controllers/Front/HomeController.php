@@ -41,4 +41,9 @@ class HomeController extends Controller
     {
         return view('front.promotion');
     }
+
+    public function review()
+    {
+        return view('front.review');
+    }
 }

@@ -20,6 +20,7 @@ Route::get('/cafe/food-menu', [App\Http\Controllers\Front\HomeController::class,
 Route::get('/spa-menu/nails', [App\Http\Controllers\Front\HomeController::class, 'nails'])->name('front.nails');
 Route::get('/groups-and-mobile', [App\Http\Controllers\Front\HomeController::class, 'groups_mobile'])->name('front.groups_mobile');
 Route::get('/monthly-promotions', [App\Http\Controllers\Front\HomeController::class, 'promotion'])->name('front.promotion');
+Route::get('/customer-reviews', [App\Http\Controllers\Front\HomeController::class, 'review'])->name('front.review');
 
 require __DIR__ . '/auth.php';
 
