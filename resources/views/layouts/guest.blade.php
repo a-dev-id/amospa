@@ -117,6 +117,7 @@
                 min-height: 220px;
             }
         }
+
     </style>
     @stack('css')
 </head>
@@ -208,13 +209,13 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="{{ route('front.promotion') }}">Monthly Promotions</a></li>
                             <li><a class="dropdown-item" href="{{ route('front.review') }}">Customer Reviews</a></li>
-                            <li><a class="dropdown-item" href="#">Media Gallery</a></li>
-                            <li><a class="dropdown-item" href="#">News & Information</a></li>
-                            <li><a class="dropdown-item" href="#">About Us</a></li>
+                            <li><a class="dropdown-item" href="{{ route('front.gallery') }}">Media Gallery</a></li>
+                            <li><a class="dropdown-item" href="{{ route('front.news-informations') }}">News & Information</a></li>
+                            <li><a class="dropdown-item" href="{{ route('front.about') }}">About Us</a></li>
                         </ul>
                     </li>
                     <li class="nav-item px-1">
-                        <a class="nav-link" href="#">Contact Us</a>
+                        <a class="nav-link" href="{{ route('front.contact') }}">Contact Us</a>
                     </li>
                     <li class="nav-item ms-4">
                         <a href="#" class="btn btn-purple text-uppercase">book now</a>
