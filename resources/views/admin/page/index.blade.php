@@ -90,7 +90,13 @@
                                     @foreach ($pages as $p)
                                         <tr>
                                             <td>{{ $p->title }}</td>
-                                            <td><img src="{{ asset('storage/' . $p->banner_image) }}" style="width: 100px"></td>
+                                            <td>
+                                                @if (!empty($p->banner_image))
+                                                    <img src="{{ asset('storage/' . $p->banner_image) }}" style="width: 100px">
+                                                @else
+                                                    No image...
+                                                @endif
+                                            </td>
                                             <td>
                                                 @if ($p->status == '1')
                                                     <span class="badge badge-success"><i class="fas fa-check-circle"></i> Published</span>
