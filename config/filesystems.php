@@ -47,7 +47,7 @@ return [
         'public' => [
             'driver' => 'local',
             // 'root' => '../public_html',
-            'root' => 'public',
+            'root' => '../public',
             'url' => env('APP_URL'),
             'visibility' => 'public',
         ],

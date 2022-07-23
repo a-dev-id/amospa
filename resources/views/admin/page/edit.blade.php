@@ -61,6 +61,10 @@
                                 <input name="title" type="text" class="form-control" placeholder="Type something" value="{{ $page->title }}">
                             </div>
                             <div class="form-group">
+                                <label>Sub Title</label>
+                                <input name="sub_title" type="text" class="form-control" placeholder="Type something" value="{{ $page->sub_title }}">
+                            </div>
+                            <div class="form-group">
                                 <label>Excerpt</label>
                                 <textarea name="excerpt" class="form-control" rows="4" id="excerpt" placeholder="Type something">{{ $page->excerpt }}</textarea>
                             </div>
@@ -86,7 +90,11 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <img src="{{ asset('storage/' . $page->banner_image) }}" class="w-100">
+                            @if (!empty($page->banner_image))
+                                <img src="{{ asset('storage/' . $page->banner_image) }}" class="w-100">
+                            @else
+                                <span class="text-secondary">No Image...</span>
+                            @endif
                         </div>
                     </div>
 

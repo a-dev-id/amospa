@@ -63,6 +63,10 @@
                                 <input name="title" type="text" class="form-control" placeholder="Type something">
                             </div>
                             <div class="form-group">
+                                <label>Sub Title</label>
+                                <input name="sub_title" type="text" class="form-control" placeholder="Type something">
+                            </div>
+                            <div class="form-group">
                                 <label>Excerpt</label>
                                 <textarea name="excerpt" class="form-control" rows="4" id="excerpt" placeholder="Type something"></textarea>
                             </div>

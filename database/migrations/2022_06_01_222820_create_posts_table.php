@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->integer('page_id');
-            $table->integer('post_uid');
             $table->string('title');
+            $table->string('sub_title')->nullable();
             $table->string('slug')->unique();
             $table->text('excerpt')->nullable();
             $table->longText('description')->nullable();

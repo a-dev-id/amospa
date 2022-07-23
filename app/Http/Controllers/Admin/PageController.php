@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Page;
+use App\Models\PageImage;
 use Illuminate\Support\Str;
 
 class PageController extends Controller
@@ -46,6 +47,7 @@ class PageController extends Controller
 
         Page::create([
             'title' => $request->title,
+            'sub_title' => $request->sub_title,
             'slug' => Str::slug($request->title),
             'description' => $request->description,
             'term_condition' => $request->term_condition,
@@ -64,7 +66,9 @@ class PageController extends Controller
      */
     public function show($id)
     {
-        //
+        $page = Page::find($id);
+        $page_images = PageImage::where('page_id', $id)->get();
+        return view('admin.page-images.index')->with(compact('page', 'page_images'));
     }
 
     /**
@@ -97,6 +101,7 @@ class PageController extends Controller
         $p = Page::find($id);
 
         $p->title = $request->title;
+        $p->sub_title = $request->sub_title;
         $p->slug = Str::slug($request->title);
         $p->description = $request->description;
         $p->term_condition = $request->term_condition;

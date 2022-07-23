@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\PostImage;
+use App\Models\PageImage;
 
-class PostImageController extends Controller
+class PageImageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,18 +36,18 @@ class PostImageController extends Controller
      */
     public function store(Request $request)
     {
-        if (empty($request->file('post_image'))) {
-            $post_image = null;
+        if (empty($request->file('page_image'))) {
+            $page_image = null;
         } else {
-            $post_image = $request->file('post_image')->store('images/post/cover', 'public');
+            $page_image = $request->file('page_image')->store('images/page/cover', 'public');
         }
 
-        PostImage::create([
-            'post_id' => $request->post_id,
-            'image' => $post_image,
+        PageImage::create([
+            'page_id' => $request->page_id,
+            'image' => $page_image,
         ]);
 
-        return redirect()->route('post.show', [$request->post_id])->with('message', 'Image added Successfully');
+        return redirect()->route('page.show', [$request->page_id])->with('message', 'Image added Successfully');
     }
 
     /**
@@ -92,8 +92,8 @@ class PostImageController extends Controller
      */
     public function destroy($id)
     {
-        $p = PostImage::find($id);
+        $p = PageImage::find($id);
         $p->delete();
-        return redirect()->route('post.show', [$p->post_id])->with('message', 'Image deleted Successfully');
+        return redirect()->route('page.show', [$p->page_id])->with('message', 'Image deleted Successfully');
     }
 }

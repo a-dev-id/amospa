@@ -3,13 +3,22 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Page;
+use App\Models\Post;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('front.home');
+        $page = Page::where('status', '1')->where('id', '1')->first();
+        $salon = Page::where('status', '1')->skip(1)->limit(8)->get();
+        return view('front.home')->with(compact('page', 'salon'));
+    }
+
+    public function home_show($slug)
+    {
+        $post = Post::where('slug', $slug)->first();
+        return view('front.home')->with(compact('post'));
     }
 
     public function amo_cafe()
@@ -61,7 +70,7 @@ class HomeController extends Controller
     {
         return view('front.about');
     }
-    
+
     public function contact()
     {
         return view('front.contact');

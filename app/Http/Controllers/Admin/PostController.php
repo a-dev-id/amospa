@@ -11,16 +11,6 @@ use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
-
-    public function generatePostUid()
-    {
-        do {
-            $post_uid = random_int(1000, 9999);
-        } while (Post::where("post_uid", "=", $post_uid)->first());
-
-        return $post_uid;
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -57,12 +47,10 @@ class PostController extends Controller
             $banner_image = $request->file('banner_image')->store('images/post/banner', 'public');
         }
 
-        $post_uid = $this->generatePostUid();
-
         Post::create([
-            'post_uid' => $post_uid,
             'page_id' => $request->page_id,
             'title' => $request->title,
+            'sub_title' => $request->sub_title,
             'slug' => Str::slug($request->title),
             'description' => $request->description,
             'excerpt' => $request->excerpt,
@@ -71,14 +59,6 @@ class PostController extends Controller
             'button_url' => $request->button_url,
             'status' => $request->status,
         ]);
-
-        foreach ($request->file('post_images') as $post_images) {
-            $pi = new PostImage;
-            $image = $post_images->store('post/cover', 'public');
-            $pi->image = $image;
-            $pi->post_uid = $post_uid;
-            $pi->save();
-        }
 
         return redirect()->route('post.index')->with('message', $request->title . ' created Successfully');
     }
@@ -92,7 +72,9 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+        $post_images = PostImage::where('post_id', $id)->get();
+        return view('admin.post-images.index')->with(compact('post', 'post_images'));
     }
 
     /**
@@ -105,7 +87,7 @@ class PostController extends Controller
     {
         $pages = Page::all();
         $post = Post::find($id);
-        $post_images = PostImage::where('post_uid', $post->uid)->get();
+        $post_images = PostImage::where('post_uid', $post->post_uid)->get();
         return view('admin.post.edit')->with(compact('post', 'pages', 'post_images'));
     }
 
@@ -127,6 +109,7 @@ class PostController extends Controller
         $p = Post::find($id);
 
         $p->title = $request->title;
+        $p->sub_title = $request->sub_title;
         $p->slug = Str::slug($request->title);
         $p->description = $request->description;
         $p->excerpt = $request->excerpt;
@@ -136,14 +119,6 @@ class PostController extends Controller
         $p->status = $request->status;
 
         $p->save();
-
-        foreach ($request->file('post_images') as $post_images) {
-            $post_images = $request->file('post_images')->store('post/cover', 'public');
-            PostImage::create([
-                'post_uid' => $p->post_uid,
-                'image' => $post_images,
-            ]);
-        }
 
         return redirect()->route('post.index')->with('message', $request->title . ' edited Successfully');
     }

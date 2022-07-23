@@ -83,7 +83,7 @@
                                         <th>Title</th>
                                         <th>Image</th>
                                         <th style="width: 100px">Status</th>
-                                        <th style="width: 70px"></th>
+                                        <th style="width: 150px"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -92,9 +92,9 @@
                                             <td>{{ $p->title }}</td>
                                             <td>
                                                 @if (!empty($p->banner_image))
-                                                    <img src="{{ asset('storage/' . $p->banner_image) }}" style="width: 100px">
+                                                    <img src="{{ asset($p->banner_image) }}" style="width: 100px">
                                                 @else
-                                                    No image...
+                                                    <span class="text-secondary">No Image...</span>
                                                 @endif
                                             </td>
                                             <td>
@@ -105,6 +105,9 @@
                                                 @endif
                                             </td>
                                             <td class="text-center">
+                                                <a href="{{ route('page.show', [$p->id]) }}" class="btn btn-sm btn-info">
+                                                    <i class="fas fa-images"></i>
+                                                </a>
                                                 <a href="{{ route('page.edit', [$p->id]) }}" class="btn btn-sm btn-warning">
                                                     <i class="fas fa-edit"></i>
                                                 </a>

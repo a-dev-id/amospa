@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>@yield('page_title')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +12,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+
+    <meta name="description" content="@yield('page_description')" />
+
+    <meta property="og:title" content="@yield('page_title')" />
+    <meta property="og:description" content="@yield('page_description')">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.amospa.com" />
+    <meta property="og:image" content="@yield('page_image')" />
+
+    <meta name="twitter:title" content="@yield('page_title')">
+    <meta name="twitter:description" content="@yield('page_description')">
+    <meta name="twitter:image" content="@yield('page_image')">
+    <meta name="twitter:card" content="summary_large_image">
 
     <style>
         body {
@@ -117,7 +130,6 @@
                 min-height: 220px;
             }
         }
-
     </style>
     @stack('css')
 </head>

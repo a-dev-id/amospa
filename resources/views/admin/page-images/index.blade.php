@@ -1,7 +1,5 @@
-@section('title', $food->title)
-@section('food', 'menu-open')
-@section('food_active', 'active')
-@section('food_list_active', 'active')
+@section('title', $page->title)
+@section('page_active', 'active')
 @section('title_breadcrumb')
     <div class="content-header">
         <div class="container-fluid">
@@ -12,7 +10,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}" class="font-weight-bold">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('food.index') }}" class="font-weight-bold">Food</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('page.index') }}" class="font-weight-bold">Page</a></li>
                         <li class="breadcrumb-item active">Add image - @yield('title')</li>
                     </ol>
                 </div>
@@ -90,10 +88,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($food_images as $fi)
+                                    @foreach ($page_images as $fi)
                                         <tr>
                                             <td>
-                                                <img src="{{ asset('storage/' . $fi->image) }}" width="150px">
+                                                <img src="{{ asset($fi->image) }}" width="150px">
                                             </td>
                                             <td class="text-center">
                                                 <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_delete_{{ $fi->id }}">
@@ -114,7 +112,7 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fas fa-ban"></i> Cancel</button>
-                                                                <form method="POST" action="{{ route('food-image.destroy', [$fi->id]) }}">
+                                                                <form method="POST" action="{{ route('page-image.destroy', [$fi->id]) }}">
                                                                     @csrf
                                                                     @method('DELETE')
                                                                     <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
@@ -141,7 +139,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <form method="POST" action="{{ route('food-image.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('page-image.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="card card-success">
                             <div class="card-header">
@@ -157,8 +155,8 @@
                                     <label for="exampleInputFile">Image</label>
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="hidden" name="food_id" value="{{ $food->id }}">
-                                            <input name="food_image" type="file" class="custom-file-input" id="exampleInputFile">
+                                            <input type="hidden" name="page_id" value="{{ $page->id }}">
+                                            <input name="page_image" type="file" class="custom-file-input" id="exampleInputFile">
                                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                         </div>
                                         <div class="input-group-append">
@@ -169,7 +167,7 @@
                             </div>
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-success btn-sm"><i class="fas fa-paper-plane"></i> Submit</button>
-                                <a href="{{ route('food.index') }}" class="btn btn-danger btn-sm"><i class="fas fa-ban"></i> Cancel</a>
+                                <a href="{{ route('page.index') }}" class="btn btn-danger btn-sm"><i class="fas fa-ban"></i> Cancel</a>
                             </div>
                         </div>
                     </form>

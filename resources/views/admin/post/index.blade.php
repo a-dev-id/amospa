@@ -83,14 +83,20 @@
                                         <th>Title</th>
                                         <th>Image</th>
                                         <th style="width: 100px">Status</th>
-                                        <th style="width: 70px"></th>
+                                        <th style="width: 150px"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($posts as $p)
                                         <tr>
                                             <td>{{ $p->title }}</td>
-                                            <td><img src="{{ asset('storage/' . $p->banner_image) }}" style="width: 100px"></td>
+                                            <td>
+                                                @if (!empty($p->banner_image))
+                                                    <img src="{{ asset($p->banner_image) }}" style="width: 100px">
+                                                @else
+                                                    <span class="text-secondary">No Image...</span>
+                                                @endif
+                                            </td>
                                             <td>
                                                 @if ($p->status == '1')
                                                     <span class="badge badge-success"><i class="fas fa-check-circle"></i> Published</span>
@@ -99,6 +105,9 @@
                                                 @endif
                                             </td>
                                             <td class="text-center">
+                                                <a href="{{ route('post.show', [$p->id]) }}" class="btn btn-sm btn-info">
+                                                    <i class="fas fa-images"></i>
+                                                </a>
                                                 <a href="{{ route('post.edit', [$p->id]) }}" class="btn btn-sm btn-warning">
                                                     <i class="fas fa-edit"></i>
                                                 </a>

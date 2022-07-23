@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PostImage extends Model
+class PageImage extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'post_id',
+        'page_id',
         'image',
     ];
 
-    public function post()
+    public function page()
     {
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo(Page::class);
     }
 }

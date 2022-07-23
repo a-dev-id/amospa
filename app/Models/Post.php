@@ -11,8 +11,8 @@ class Post extends Model
 
     protected $fillable = [
         'page_id',
-        'post_uid',
         'title',
+        'sub_title',
         'slug',
         'excerpt',
         'description',
@@ -24,6 +24,6 @@ class Post extends Model
 
     public function post_images()
     {
-        return $this->hasMany('App\PostImage', 'post_id');
+        return $this->hasMany(PostImage::class);
     }
 }

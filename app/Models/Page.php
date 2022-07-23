@@ -11,6 +11,7 @@ class Page extends Model
 
     protected $fillable = [
         'title',
+        'sub_title',
         'slug',
         'excerpt',
         'description',
@@ -18,4 +19,9 @@ class Page extends Model
         'banner_image',
         'status',
     ];
+
+    public function page_images()
+    {
+        return $this->hasMany(PageImage::class);
+    }
 }

@@ -63,6 +63,10 @@
                                 <input name="title" type="text" class="form-control" placeholder="Type something" value="{{ $post->title }}">
                             </div>
                             <div class="form-group">
+                                <label>Sub Title</label>
+                                <input name="sub_title" type="text" class="form-control" placeholder="Type something" value="{{ $post->sub_title }}">
+                            </div>
+                            <div class="form-group">
                                 <label>Excerpt</label>
                                 <textarea name="excerpt" class="form-control" rows="4" id="excerpt" placeholder="Type something">{{ $post->excerpt }}</textarea>
                             </div>
@@ -83,7 +87,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <img src="{{ asset('storage/' . $post->banner_image) }}" class="w-100">
+                            <img src="{{ asset($post->banner_image) }}" class="w-100">
                         </div>
                     </div>
 
@@ -102,14 +106,10 @@
                                     <div class="col-4">
                                         <div class="card">
                                             <div class="card-body">
-                                                <img src="{{ asset('storage/' . $pi->image) }}" class="w-100">
+                                                <img src="{{ asset($pi->image) }}" class="w-100">
                                             </div>
                                             <div class="card-footer">
-                                                {{-- <form method="POST" action="{{ route('post_image.destroy', [$pi->id]) }}">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" name="deleteCoverImage" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
-                                                </form> --}}
+
                                             </div>
                                         </div>
                                     </div>

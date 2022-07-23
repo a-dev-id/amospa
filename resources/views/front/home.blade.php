@@ -93,6 +93,12 @@
     </script>
 @endpush
 
+@section('page_title')
+    {!! $page->sub_title !!}
+@endsection
+@section('page_description')
+    {!! $page->description !!}
+@endsection
 <x-guest-layout>
 
     {{-- video header --}}
@@ -108,150 +114,24 @@
         <hr class="text-black border-2 opacity-75 mb-5 mb-lg-4">
 
         <div class="row">
-            <div class="col-12 col-lg-3 mb-2 px-lg-2 mb-lg-3">
-                <div class="position-relative m-auto">
-                    <div class="category">
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
+            @foreach ($salon as $data)
+                <div class="col-12 col-lg-3 mb-2 px-lg-2 mb-lg-3">
+                    <a href="{{ url($data->slug) }}">
+                        <div class="position-relative m-auto">
+                            <div class="category">
+                                @foreach ($data->page_images as $subdata)
+                                    <div>
+                                        <img src="{{ asset($subdata->image) }}" class="w-100">
+                                    </div>
+                                @endforeach
+                            </div>
+                            <div class="position-absolute bottom-0 text-transparent w-100 text-white text-center py-4">
+                                <h2 class="p-0 m-0 fs-5 fw-bold">{{ $data->title }}</h2>
+                            </div>
                         </div>
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                    </div>
-                    <div class="position-absolute bottom-0 text-transparent w-100 text-white text-center py-4">
-                        <h2 class="p-0 m-0 fs-5">Heading</h2>
-                    </div>
+                    </a>
                 </div>
-            </div>
-            <div class="col-12 col-lg-3 mb-2 px-lg-2 mb-lg-3">
-                <div class=" position-relative m-auto">
-                    <div class="category">
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                    </div>
-                    <div class="position-absolute bottom-0 text-transparent w-100 text-white text-center py-4">
-                        <h2 class="p-0 m-0 fs-5">Heading</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 mb-2 px-lg-2 mb-lg-3">
-                <div class=" position-relative m-auto">
-                    <div class="category">
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                    </div>
-                    <div class="position-absolute bottom-0 text-transparent w-100 text-white text-center py-4">
-                        <h2 class="p-0 m-0 fs-5">Heading</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 mb-2 px-lg-2 mb-lg-3">
-                <div class=" position-relative m-auto">
-                    <div class="category">
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                    </div>
-                    <div class="position-absolute bottom-0 text-transparent w-100 text-white text-center py-4">
-                        <h2 class="p-0 m-0 fs-5">Heading</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 mb-2 px-lg-2 mb-lg-3">
-                <div class=" position-relative m-auto">
-                    <div class="category">
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                    </div>
-                    <div class="position-absolute bottom-0 text-transparent w-100 text-white text-center py-4">
-                        <h2 class="p-0 m-0 fs-5">Heading</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 mb-2 px-lg-2 mb-lg-3">
-                <div class=" position-relative m-auto">
-                    <div class="category">
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                    </div>
-                    <div class="position-absolute bottom-0 text-transparent w-100 text-white text-center py-4">
-                        <h2 class="p-0 m-0 fs-5">Heading</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 mb-2 px-lg-2 mb-lg-3">
-                <div class=" position-relative m-auto">
-                    <div class="category">
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                    </div>
-                    <div class="position-absolute bottom-0 text-transparent w-100 text-white text-center py-4">
-                        <h2 class="p-0 m-0 fs-5">Heading</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 mb-2 px-lg-2 mb-lg-3">
-                <div class=" position-relative m-auto">
-                    <div class="category">
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                        <div>
-                            <img src="http://via.placeholder.com/400x470" class="w-100">
-                        </div>
-                    </div>
-                    <div class="position-absolute bottom-0 text-transparent w-100 text-white text-center py-4">
-                        <h2 class="p-0 m-0 fs-5">Heading</h2>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </section>
 

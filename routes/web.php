@@ -32,6 +32,7 @@ require __DIR__ . '/auth.php';
 Route::middleware(['auth'])->prefix('panel/admin')->group(function () {
     Route::resource('dashboard', App\Http\Controllers\Admin\DashboardController::class);
     Route::resource('page', App\Http\Controllers\Admin\PageController::class);
+    Route::resource('page-image', App\Http\Controllers\Admin\PageImageController::class);
     Route::resource('post', App\Http\Controllers\Admin\PostController::class);
     Route::resource('post-image', App\Http\Controllers\Admin\PostImageController::class);
     Route::resource('food-category', App\Http\Controllers\Admin\FoodCategoryController::class);
