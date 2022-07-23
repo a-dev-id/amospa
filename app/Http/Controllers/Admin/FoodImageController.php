@@ -39,7 +39,7 @@ class FoodImageController extends Controller
         if (empty($request->file('food_image'))) {
             $food_image = null;
         } else {
-            $food_image = $request->file('food_image')->store('food/image', 'public');
+            $food_image = $request->file('food_image')->store('images/food/image', 'public');
         }
 
         FoodImage::create([

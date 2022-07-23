@@ -41,7 +41,7 @@ class PageController extends Controller
         if (empty($request->file('banner_image'))) {
             $banner_image = null;
         } else {
-            $banner_image = $request->file('banner_image')->store('page/banner', 'public');
+            $banner_image = $request->file('banner_image')->store('images/page/banner', 'public');
         }
 
         Page::create([
@@ -91,7 +91,7 @@ class PageController extends Controller
         if (empty($request->file('banner_image'))) {
             $banner_image = $request->old_banner_image;
         } else {
-            $banner_image = $request->file('banner_image')->store('page/banner', 'public');
+            $banner_image = $request->file('banner_image')->store('images/page/banner', 'public');
         }
 
         $p = Page::find($id);

@@ -40,7 +40,7 @@ class PromoImageController extends Controller
         if (empty($request->file('promo_image'))) {
             $promo_image = null;
         } else {
-            $promo_image = $request->file('promo_image')->store('promo/cover', 'public');
+            $promo_image = $request->file('promo_image')->store('images/promo/cover', 'public');
         }
 
         promoImage::create([

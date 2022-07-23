@@ -42,7 +42,7 @@ class NewsInformationController extends Controller
         if (empty($request->file('banner_image'))) {
             $banner_image = null;
         } else {
-            $banner_image = $request->file('banner_image')->store('news_information/banner', 'public');
+            $banner_image = $request->file('banner_image')->store('images/news_information/banner', 'public');
         }
 
         NewsInformation::create([
@@ -91,7 +91,7 @@ class NewsInformationController extends Controller
         if (empty($request->file('banner_image'))) {
             $banner_image = $request->old_banner_image;
         } else {
-            $banner_image = $request->file('banner_image')->store('news_information/banner', 'public');
+            $banner_image = $request->file('banner_image')->store('images/news_information/banner', 'public');
         }
 
         $p = NewsInformation::find($id);

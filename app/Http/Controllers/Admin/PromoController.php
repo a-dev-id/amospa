@@ -43,7 +43,7 @@ class PromoController extends Controller
         if (empty($request->file('banner_image'))) {
             $banner_image = null;
         } else {
-            $banner_image = $request->file('banner_image')->store('promo/banner', 'public');
+            $banner_image = $request->file('banner_image')->store('images/promo/banner', 'public');
         }
 
         Promo::create([
@@ -94,7 +94,7 @@ class PromoController extends Controller
         if (empty($request->file('banner_image'))) {
             $banner_image = $request->old_banner_image;
         } else {
-            $banner_image = $request->file('banner_image')->store('promo/banner', 'public');
+            $banner_image = $request->file('banner_image')->store('images/promo/banner', 'public');
         }
 
         $p = Promo::find($id);

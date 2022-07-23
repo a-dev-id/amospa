@@ -40,7 +40,7 @@ class SpaImageController extends Controller
         if (empty($request->file('spa_image'))) {
             $spa_image = null;
         } else {
-            $spa_image = $request->file('spa_image')->store('spa/cover', 'public');
+            $spa_image = $request->file('spa_image')->store('images/spa/cover', 'public');
         }
 
         SpaImage::create([

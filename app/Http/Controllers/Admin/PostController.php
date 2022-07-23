@@ -54,7 +54,7 @@ class PostController extends Controller
         if (empty($request->file('banner_image'))) {
             $banner_image = null;
         } else {
-            $banner_image = $request->file('banner_image')->store('post/banner', 'public');
+            $banner_image = $request->file('banner_image')->store('images/post/banner', 'public');
         }
 
         $post_uid = $this->generatePostUid();
@@ -121,7 +121,7 @@ class PostController extends Controller
         if (empty($request->file('banner_image'))) {
             $banner_image = $request->old_banner_image;
         } else {
-            $banner_image = $request->file('banner_image')->store('post/banner', 'public');
+            $banner_image = $request->file('banner_image')->store('images/post/banner', 'public');
         }
 
         $p = Post::find($id);

@@ -39,7 +39,7 @@ class SpaCategoryImageController extends Controller
         if (empty($request->file('spa_category_image'))) {
             $spa_category_image = null;
         } else {
-            $spa_category_image = $request->file('spa_category_image')->store('spa/category/', 'public');
+            $spa_category_image = $request->file('spa_category_image')->store('images/spa/category/', 'public');
         }
 
         SpaCategoryImage::create([

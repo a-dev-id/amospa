@@ -43,7 +43,7 @@ class SpaCategoryController extends Controller
         if (empty($request->file('banner_image'))) {
             $banner_image = null;
         } else {
-            $banner_image = $request->file('banner_image')->store('spa/banner', 'public');
+            $banner_image = $request->file('banner_image')->store('images/spa/banner', 'public');
         }
 
         SpaCategory::create([
@@ -94,7 +94,7 @@ class SpaCategoryController extends Controller
         if (empty($request->file('banner_image'))) {
             $banner_image = $request->old_banner_image;
         } else {
-            $banner_image = $request->file('banner_image')->store('spa/banner', 'public');
+            $banner_image = $request->file('banner_image')->store('images/spa/banner', 'public');
         }
 
         $p = SpaCategory::find($id);
