@@ -46,4 +46,24 @@ class HomeController extends Controller
     {
         return view('front.review');
     }
+
+    public function gallery()
+    {
+        return view('front.gallery');
+    }
+
+    public function news_informations()
+    {
+        return view('front.news-informations');
+    }
+
+    public function about()
+    {
+        return view('front.about');
+    }
+    
+    public function contact()
+    {
+        return view('front.contact');
+    }
 }

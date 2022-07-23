@@ -21,6 +21,10 @@ Route::get('/spa-menu/nails', [App\Http\Controllers\Front\HomeController::class,
 Route::get('/groups-and-mobile', [App\Http\Controllers\Front\HomeController::class, 'groups_mobile'])->name('front.groups_mobile');
 Route::get('/monthly-promotions', [App\Http\Controllers\Front\HomeController::class, 'promotion'])->name('front.promotion');
 Route::get('/customer-reviews', [App\Http\Controllers\Front\HomeController::class, 'review'])->name('front.review');
+Route::get('/media-gallery', [App\Http\Controllers\Front\HomeController::class, 'gallery'])->name('front.gallery');
+Route::get('/news-and-informations', [App\Http\Controllers\Front\HomeController::class, 'news_informations'])->name('front.news-informations');
+Route::get('/about-us', [App\Http\Controllers\Front\HomeController::class, 'about'])->name('front.about');
+Route::get('/contact-us', [App\Http\Controllers\Front\HomeController::class, 'contact'])->name('front.contact');
 
 require __DIR__ . '/auth.php';
 
