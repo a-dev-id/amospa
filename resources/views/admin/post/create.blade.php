@@ -121,18 +121,6 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputFile">Cover Image</label>
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input name="post_images[]" multiple type="file" class="custom-file-input" id="exampleInputFile">
-                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Upload</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label>on Page</label>
                                 <select name="page_id" class="form-control" required>
                                     <option selected>Choose</option>

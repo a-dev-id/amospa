@@ -45,7 +45,8 @@
 <x-app-layout>
     <section class="content">
         <div class="container-fluid">
-            <form method="POST" action="{{ route('post.store') }}" enctype="multipart/form-data" class="row">
+            <form method="POST" action="{{ route('post.update', [$post->id]) }}" enctype="multipart/form-data" class="row">
+                @method('PUT')
                 @csrf
                 <div class="col-lg-8">
                     <div class="card card-primary">
@@ -76,47 +77,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Banner Image</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <img src="{{ asset($post->banner_image) }}" class="w-100">
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Cover Images</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                @foreach ($post_images as $pi)
-                                    <div class="col-4">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <img src="{{ asset($pi->image) }}" class="w-100">
-                                            </div>
-                                            <div class="card-footer">
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="col-lg-4">
@@ -141,6 +101,20 @@
                         </div>
                     </div>
 
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Banner Image</h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <img src="{{ asset($post->banner_image) }}" class="w-100">
+                        </div>
+                    </div>
+
                     <div class="card card-default">
                         <div class="card-header">
                             <h3 class="card-title">Detail</h3>
@@ -150,6 +124,7 @@
                                 </button>
                             </div>
                         </div>
+
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputFile">Banner Image</label>
@@ -164,23 +139,11 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputFile">Cover Image</label>
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input name="post_images[]" multiple type="file" class="custom-file-input" id="exampleInputFile">
-                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Upload</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label>on Page</label>
                                 <select name="page_id" class="form-control" required>
-                                    <option selected>Choose</option>
+                                    <option>Choose</option>
                                     @foreach ($pages as $page)
-                                        <option value="{{ $page->id }}">{{ $page->title }}</option>
+                                        <option value="{{ $page->id }}" @if ($page->id == $post->page_id) selected @else @endif>{{ $page->title }}</option>
                                     @endforeach
                                 </select>
                             </div>

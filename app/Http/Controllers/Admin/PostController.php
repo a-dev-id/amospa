@@ -87,8 +87,7 @@ class PostController extends Controller
     {
         $pages = Page::all();
         $post = Post::find($id);
-        $post_images = PostImage::where('post_uid', $post->post_uid)->get();
-        return view('admin.post.edit')->with(compact('post', 'pages', 'post_images'));
+        return view('admin.post.edit')->with(compact('post', 'pages'));
     }
 
     /**

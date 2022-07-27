@@ -91,7 +91,7 @@
                         </div>
                         <div class="card-body">
                             @if (!empty($page->banner_image))
-                                <img src="{{ asset('storage/' . $page->banner_image) }}" class="w-100">
+                                <img src="{{ asset($page->banner_image) }}" class="w-100">
                             @else
                                 <span class="text-secondary">No Image...</span>
                             @endif

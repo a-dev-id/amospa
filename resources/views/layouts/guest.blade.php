@@ -174,7 +174,7 @@
     {{-- desktop --}}
     <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top bg-opacity-75 p-lg-0">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ route('index') }}">
                 <object id="logo" data="{{ asset('images/logo.svg') }}" width="60px" class="logo-white"> </object>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -183,7 +183,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item px-1">
-                        <a class="nav-link active" aria-current="page" href="{{ route('front.home') }}">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('index') }}">Home</a>
                     </li>
                     <li class="nav-item px-1 dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -240,22 +240,7 @@
     {{ $slot }}
 
     <footer>
-        <section class="container-fluid bg-dark-purple py-lg-3">
-            <div class="text-center">
-                <a href="">
-                    <img src="{{ asset('images/1485341118_06-facebook.png') }}" class="px-lg-2">
-                </a>
-                <a href="">
-                    <img src="{{ asset('images/1485341181_38-instagram.png') }}" class="px-lg-2">
-                </a>
-                <a href="">
-                    <img src="{{ asset('images/tripadvisor-xxl-1.png') }}" class="px-lg-2">
-                </a>
-                <a href="">
-                    <img src="{{ asset('images/youtube-3.png') }}" class="px-lg-2">
-                </a>
-            </div>
-        </section>
+        @yield('footer_social')
 
         <section class="container-fluid pt-5">
             <div class="row d-flex align-items-center">

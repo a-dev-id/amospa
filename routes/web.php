@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\Front\HomeController::class, 'index'])->name('front.home');
+// Route::get('/', [App\Http\Controllers\Front\HomeController::class, 'index'])->name('front.home');
+Route::resource('/', App\Http\Controllers\Front\IndexController::class);
 Route::get('/cafe/canggu-restaurants', [App\Http\Controllers\Front\HomeController::class, 'amo_cafe'])->name('front.amo_cafe');
 Route::get('/cafe/drinks-menu', [App\Http\Controllers\Front\HomeController::class, 'drinks_menu'])->name('front.drinks_menu');
 Route::get('/cafe/food-menu', [App\Http\Controllers\Front\HomeController::class, 'food_menu'])->name('front.food_menu');
@@ -25,6 +26,8 @@ Route::get('/media-gallery', [App\Http\Controllers\Front\HomeController::class, 
 Route::get('/news-and-informations', [App\Http\Controllers\Front\HomeController::class, 'news_informations'])->name('front.news-informations');
 Route::get('/about-us', [App\Http\Controllers\Front\HomeController::class, 'about'])->name('front.about');
 Route::get('/contact-us', [App\Http\Controllers\Front\HomeController::class, 'contact'])->name('front.contact');
+
+Route::get('/salon/{slug}', [App\Http\Controllers\Front\IndexController::class, 'show'])->name('home.show');
 
 require __DIR__ . '/auth.php';
 
